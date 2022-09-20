@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1></h1>
+
+
+
+    <script>     
+
+        
+
+        function ran() {
+            do {
+                ran1 = Math.floor(Math.random() * 30) + 1;
+                ran2 = Math.floor(Math.random() * 30) + 1;
+            }
+            while (ran1 == ran2) {
+                ran1 = Math.floor(Math.random() * 30) + 1;
+                ran2 = Math.floor(Math.random() * 30) + 1;
+            }
+        }
+
+        var ran1;
+        var ran2;
+
+        function aa() {
+            var a = [];
+            console.log(ran1, ran2);
+            
+            for (i = 0; i <= a.length - 1; i++) {
+                console.log(a[i]);
+                if (a[i] == ran1 || a[i] == ran2) {                   
+                    ran();
+                    console.log(ran1, ran2);
+                    i = 0;                   
+                }
+            }
+            document.write("<h1>主席:" + ran1 + "</h1>" + "<h1>紀錄:" + ran2 + "</h2>");
+            
+        }
+
+        ran();
+        aa();
+
+
+    </script>
+</body>
+</html>

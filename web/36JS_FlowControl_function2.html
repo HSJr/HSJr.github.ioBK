@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #img {
+            margin-left:0;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h2 id="t"></h2>
+    X:<input id="TextX" type="text" />
+    Y:<input id="TextY" type="text" />
+    <hr/>
+      <img id="img" src="images/Koala.jpg" width="300" />
+
+
+
+
+
+    <script>
+
+
+        function myTimer() {
+        var timer = new Date();
+            t.innerText = timer;
+
+            setTimeout("myTimer()", 1000); //(呼叫動作,停止每多少毫秒)
+
+        }
+        myTimer();
+
+        function getXY(aa) {
+            TextX.value = aa.pageX;
+            TextY.value = aa.pageY;
+        }
+        document.addEventListener("mousemove", getXY);
+
+
+
+        var a = 0;
+        function imgMove() {
+            a += 5;
+            img.style.marginLeft = a + "px";
+
+            if (img.offsetLeft < 1500) {
+                setTimeout("imgMove()", 100);
+            }
+        }
+        imgMove();
+        //document.write(timer);
+
+
+    </script>
+</body>
+</html>

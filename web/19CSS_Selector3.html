@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1 {
+            border: 5px double #000000;
+            width: 800px;
+            box-shadow: 3px 3px 10px black;
+        }
+            /*
+            #table1 td {
+                border: 1px solid #3c3c3c;
+                text-align: center;
+            }*/
+
+        #table1 tr:hover{
+            background-color:yellow;
+        }
+            #table1 > tr > td {
+                border: 1px solid #3c3c3c;
+                text-align: center;
+            }
+
+            #table1 > tr:first-child + tr > td:last-child {
+                color: red;
+            }
+        #myul ol li:first-child+li+li {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myul">
+        <li>
+            111
+            <ul>
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+                <li>
+                    ddd
+                    <ol>
+                        <li>111</li>
+                        <li>222</li>
+                        <li>333</li>
+                        <li>444</li>
+                        <li>aaaaa</li>
+                    </ol>
+                </li>
+                <li>eee</li>
+                <li>fff</li>
+                <li>ggg</li>
+                <li>hhh</li>
+            </ul>
+        </li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+
+
+    <table id="table1">
+    </table>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var item = "";
+
+        $.ajax({
+            type: 'get',
+            url: 'https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    item = `<tr>
+                                                <td>${data[i].Name}</td>
+                                                <td>${data[i].Tel}</td>
+                                                <td>${data[i].Address}</td>
+                                            </tr>`;
+                    $('#table1').append(item);
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

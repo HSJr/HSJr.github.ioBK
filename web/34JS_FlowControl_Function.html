@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+
+    <script>
+        //函數(funtion)擁有特定功用，預先寫好的程式。
+
+
+        //內建函數
+        //alert("text");
+        //prompt("請輸入您的姓名");
+
+
+        //var r = Math.random();//Math.random()回傳0>= 隨機值 <1  
+        //document.write(r);
+
+
+
+       //自訂函數第一種寫法 原生寫法
+        //預先編寫好程式，使程式可以被重複使用
+        //function switchTwoNumber(number1, number2) {
+        //    var x = number1;
+        //    var y = number2;
+        //    var z = x;
+        //    x = y;
+        //    y = z;
+
+        //    document.write("兩數交換後第一位數為：" + x + "，第二位數為：" + y);
+        //}
+
+        //var a = prompt("請輸入第一位數");//protmpt所輸入的值會是字串，可以使用parseInt()轉成數值
+        //var b = prompt("請輸入第二位數");
+        //document.write("您所輸入的第一位數為：" + a + "，第二位數為：" + b+"<br/>");
+
+        //switchTwoNumber(a, b);
+
+
+       //自訂函數第二種寫法 
+        var intPayType = parseInt(prompt("1.信用卡付款2.現金3.轉帳4.Line Pay5.貨到付款"));
+
+        var selectPaytype = function (intPayType) {
+
+        switch (intPayType) {
+            case 1:
+                document.write("信用卡付款");
+                break;
+            case 2:
+                document.write("現金");
+                break;
+            case 3:
+                document.write("轉帳");
+                break;
+            case 4:
+                document.write("Line Pay");
+                break;
+            case 5:
+                document.write("貨到付款");
+                break;
+            default:
+                document.write("無此付款別");
+        }
+        }
+        selectPaytype(intPayType);
+
+
+
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>

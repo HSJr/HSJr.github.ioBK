@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        //多條件流程控制 switch(值){case 值: 動作 break; default:}
+        //1.信用卡付款2.現金3.轉帳4.Line Pay5.貨到付款
+        var intPayType = 2;
+
+        switch (intPayType) {
+            case 1:
+                document.write("信用卡付款");
+                break;
+            case 2:
+                document.write("現金");
+                break;
+            case 3:
+                document.write("轉帳");
+                break;
+            case 4:
+                document.write("Line Pay");
+                break;
+            case 5:
+                document.write("貨到付款");
+                break;
+            default:
+                document.write("無此付款別");
+        }
+
+        var strColor = "r";
+        switch (strColor) {
+            case "r":
+                document.write("紅色");
+                break;
+            case "y":
+                document.write("黃色");
+                break;
+            case "g":
+                document.write("綠色");
+                break;
+            default:
+                document.write("不是紅黃綠");
+        }
+
+
+
+        //區分等第只用switch
+        //90分以上優等 80-89 甲 70-79 乙 60-69丙 60不到丁
+
+        //parseInt()轉整數
+
+        document.write("<hr />");
+        var score = prompt("分數");
+        //score = parseInt(score / 10);
+        score /= 10;
+        switch (parseInt(score)) {
+            case 10:
+            case 9:
+                document.write("優");
+                break;
+            case 8:
+                document.write("甲");
+                break;
+            case 7:
+                document.write("乙");
+                break;
+            case 6:
+                document.write("丙");
+                break;
+            default:
+                document.write("丁???丁");
+        }
+
+
+    </script>
+</body>
+</html>

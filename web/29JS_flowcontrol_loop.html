@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        //迴圈(loop)
+        //for 敘述
+        //for(起始值;結束值;增量值;)
+
+        for (i = 1; i <= 10; i++) {
+            document.write("Hello world!!!");
+        //    console.log(i);
+        }
+        document.write("<hr />");
+
+
+
+
+        for (j = 1; j <= 100; j++) { 
+            for (i = 1; i <= 6; i++) {
+                document.write("<h"+i+">Hello"+i+"</h"+i+">");
+            }
+        }
+        /////////////
+       //雞兔同籠 雞兔共35隻 雞兔腳94隻 雞兔各幾隻?
+
+        //var f;
+        //var y;
+        //var x;
+        //for (y = 1; y <= 35; y++) {
+        //    x = 35 - y;
+        //    for (x; x >= 0; x--) {
+        //        f = (y * 2) + (x * 4);
+        //        console.log(f);
+        //        if (f == 94 && x+y==35) {
+        //            document.write("<hr>");
+        //            document.write("f=" + f);
+        //            document.write("<hr>");
+        //            document.write("兔子="+x+ ",雞=" + y);
+        //        }
+
+        //    }
+        //}
+
+
+        //var y = 35;
+        //for (x = 1; x <= 35; x++) {
+        //    y--;
+        //    f=y * 2 + x * 4;
+        //    if (f == 94 && x + y == 35) {
+        //        document.write("<hr>");
+        //        document.write("兔子=" + x + ",雞=" + y);
+
+        //    }
+        //}
+
+        //窮舉法
+        var i = prompt("總共幾隻動物");
+        var foot = prompt("總共有幾隻腳");//可變動檢查變數
+        var x;
+        var f;
+        var y = i;
+        for (x = 0; x <= i; x++) {
+            console.log(x);
+            f = y * 2 + x * 4;
+            //document.write("兔子=" + x + ",雞=" + y);
+            //document.write(f);
+            if (f == foot && x + y == i) {
+                document.write("<hr />")
+                document.write("兔子=" + x + ",雞=" + y);
+            }
+            y--;
+        }
+        
+        document.write("<hr />")
+        /////計算1加到100的總和 需求確認：要先知道需求要什麼東西
+        //先寫架子 演算法:透過流程、方法與資料結構得到我想要的結果
+        var sum=0;
+        for (i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        document.write("1-100總和："+sum);
+
+
+
+
+    </script>
+</body>
+</html>

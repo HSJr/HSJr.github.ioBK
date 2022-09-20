@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #container {
+            width: 770px;
+            margin: auto;
+            position:relative;/*依照containger為相對基準點*/
+        }
+
+        header {
+
+        }
+
+        nav {
+
+            float: left;
+/*            background-color: aqua;*/
+        }
+
+        article {
+
+            float: right;
+/*            background-color: blueviolet;*/
+        }
+
+        footer {
+
+            clear: both;
+/*            background-color: darkcyan;*/
+        }
+        #ad1 {
+            position:absolute;
+            top:0;
+            left:20px;
+        }
+        #ad2 {
+            position:fixed;/*永遠以視窗為定位點*/
+            top:0;
+            right:20px;
+        }
+        #ad {
+            position:absolute;/*以body或父結點為position:relative fixed absolute定位點去做絕對位置*/
+            top:30px;
+            left:124px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <img src="切版素材/top.jpg" />
+        </header>
+        <nav>
+            <img src="切版素材/left.jpg" />
+        </nav>
+        <article>
+            <img src="切版素材/right.jpg" />
+        </article>
+        <footer>
+            <img src="切版素材/bottom.jpg" />
+        </footer>   
+        <img id="ad" src="切版素材/ad.jpg" />
+    </div>
+
+    <img id="ad1" src="切版素材/banner1.jpg" />
+    <img id="ad2" src="切版素材/banner2.jpg" />
+</body>
+</html>

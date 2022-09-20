@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+
+    <script>
+        //計算1加到100的總和
+        var sum = 0;
+        for ( i=1 ; i<=1000 ; i++ ) {
+            //累加所有的i值
+
+            sum += i;  //sum = sum + i;
+        }
+
+
+        document.write(sum);
+
+        document.write("<hr>");
+         ///////////////
+       //雞兔同籠
+        //已知雞兔共35隻,雞兔的腳共94支,請問籠子裡雞兔各有幾隻?
+        //var y = 35;
+        for (var x = 0; x <= 35; x++) {
+            //y=y-x;
+            console.log("x=" + x + ", y=" + (35 - x) );
+
+            if ( 2*x+4*(35-x)==94   ) {
+                document.write("雞=" + x + ", 兔子=" + (35 - x) + "<br>");
+                break;
+            }
+
+        }
+
+
+        document.write("<hr/>");
+        //髒髒版 費式數列
+        //1,1,2,3,5,8,13,21,34,55,89
+        var n = prompt("費式數列第幾位：？")
+        nn = n - 2;
+        n1 = 1;
+        n2 = 1;
+        document.write("第" + 1 + "位" + ":" + n1 + "<hr />");
+        document.write("第" + 2 + "位" + ":" + n2 + "<hr />");
+
+        for (i = 1; i <= nn; i++) {
+            n3 = n1 + n2;
+            n1 = n2;
+            n2 = n3;
+
+            console.log("n3是" + n3);
+            document.write("第" + (i+2) + "位" + ":" + n3 + "<hr />");
+        }
+        //if (n == 1 ||n==2) {
+        //document.write("第" + n + "位" + ":" + 1 + "<hr />");
+        //}else
+        //    document.write("第" + n + "位" + ":" + n3 + "<hr />");
+
+
+        //老師版 費式數列
+
+    </script>
+
+</body>
+</html>

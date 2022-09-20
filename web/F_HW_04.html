@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        
+        h1 {
+            box-shadow: 0px 0px 1px #acf7d0;
+            background-color: #acf7d0;
+            color: #1d7e25;
+            padding: 10px;
+            text-align: center;
+        }
+        #outclass {
+            margin-bottom: 20px;
+            display: flex;
+            font-size: 36px;
+            justify-content: center;
+            align-items: center;
+        }
+        #outclass > spen {
+            margin-right:10px;
+        }
+        #contanier {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3%;
+            flex-direction: row;
+        }
+        #contanier:last-child{
+            align-items:start;
+        }
+        .pp {
+            /*white-space: nowrap;*/
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 10px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            height: auto;
+            width: 250px;
+            text-indent: 2em;
+        }
+        .block > span {
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            height: 240px;
+        }
+        .block {
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            height: 400px;
+            border: 1px solid #1d7e25;
+            padding: 5px;
+        }
+        .block:hover {            
+            box-shadow: 0px 0px 5px #1d7e25;
+        }
+        .block > spen {
+            text-align: right;
+            width: 200px;
+            font-size: 8px;
+            margin-bottom: 5px;
+        }
+        .btn {
+            width: 150px;
+            border-radius: 15px;
+            text-decoration: none;
+            text-decoration-color: none;
+            color: white;
+            font-size: 16pt;
+            background-color: mediumseagreen;
+            padding: 5px;
+            text-align: center;
+        }
+        .btn:hover {
+            box-shadow: 0px 0px 5px darkgreen;
+        }
+        #city_sleect {
+            font-size: 36px;
+        }
+        #hideDiv { /*全屏遮擋*/
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background-color: rgba(255,255,255,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #hideDiv #infomationall { /*在中間顯示*/
+                width: 85%;
+                max-height: 90%;
+                background-color: antiquewhite;
+                padding: 20px;
+                position: relative;
+                font-size: 30px;
+                box-shadow: 0px 0px 5px black;
+                font-size: 28px;
+        }
+        #hideDiv > #infomationall > div {
+                text-indent: 2em;
+        }
+        #hideDiv #infomationall #btn_Close { /*關閉按鈕*/
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                line-height: 38px;
+                text-align: center;
+                background-color: #000;
+                color: aliceblue;
+                text-decoration: none;
+                top: -15px;
+                right: -22px;
+                border-radius: 50%;
+                box-shadow: 0px 0px 20px black;
+        }
+        #hideDiv #infomationall #btn_Close:hover {
+            background-color: gray;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>全國休閒農業區旅遊資訊</h1>
+    <div id="outclass">
+        <spen>請選擇城市 :</spen>
+        <select id="city_sleect" onchange="CityDate()">
+            <option>請選擇</option>
+        </select>
+    </div>
+    <div id="contanier"></div>
+    <div id="hideDiv">
+        <div id="infomationall"></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        $("#hideDiv").hide();
+        var TravelHtml = "";
+        var City = [];
+        cityselect();
+        CityDate();
+
+        //建立農業園區城市篩選
+        function cityselect() {
+            $.ajax({
+                tyrp: 'get',
+                url: 'https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx',
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        if ($.inArray(data[i].City, City) == -1) { 
+                            City.push(data[i].City);
+                        }
+                    }
+                    console.log(City);
+                    for (var i = 0; i < City.length; i++) {
+                        $('#city_sleect').append(`<option>${City[i]}</option>`);
+                    }
+                },
+                error: function () {
+                    console.log(error);
+                }
+            })
+        }
+    
+        //建立農業園區資料
+        function CityDate() {
+            var urlData = "";
+            var CitySelected = $("select").find("option:selected").text();
+            console.log(CitySelected);
+            if (CitySelected == "請選擇") {
+                urlData = `https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx`;
+            } else {
+                urlData = `https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx?$filter=City+like+${CitySelected}`;
+            }
+            console.log(urlData);
+            $('#contanier').empty();
+            $.ajax({
+                tyrp: 'get',
+                url: urlData,
+                success: function (data) {
+
+                    for (var i = 0; i < data.length; i++) {                        
+                        TravelHtml = `<div class="block"><div><img src="${data[i].Photo}" width="300px"/></div>
+                                          <h2>${data[i].Name}</h2>
+                                          <spen >${data[i].City} ${data[i].Town}</spen>
+                                          <div class="pp" id="gogo">${data[i].Introduction}</div>
+                                          <a href="#" class="btn" onclick="more(this)" >詳細資料</a>
+                                          <br /></div>`
+                        $('#contanier').append(TravelHtml);
+                    }
+                },
+                error: function () {
+                    console.log(error);
+                }
+            })
+        }
+
+        //建立園區詳細資訊
+        function more(thisObj) {
+            var findDataInfo = $(thisObj).parent().children("#gogo").text();//抓父層Info
+            var findDataName = $(thisObj).parent().children("h2").text();//抓到父層Name
+            $('#infomationall').append(`<h1>${findDataName}</h1>`);
+            $('#infomationall').append(`<div>${findDataInfo}</div>`);
+            $('#infomationall').append(`<a href="#" id="btn_Close" onclick="btn_closeFull()">X</a>`);
+            $("#hideDiv").show();
+        }
+        //關閉園區詳細資訊
+        function btn_closeFull() {
+            $("#hideDiv").hide();
+            $('#infomationall').empty();
+        }
+
+    </script>
+</body>
+</html>

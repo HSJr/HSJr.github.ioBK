@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        .red {
+            color:red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <h1 id="h1" onclick="changeColor()">welcome my homepage</h1>
+
+    <h1  onclick="changeColor()">welcome my homepage</h1>
+    <h1  onclick="changeColor()">welcome my homepage</h1>
+
+
+
+
+
+
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        function changeColor() {
+            $('.h1').addClass("red");
+        }
+
+
+        $('#container').html("<h1>jquery歡迎光臨</h1>");
+
+                //function changeColor() {
+                //    var h1 = document.getElementsByTagName("h1");
+                //    h1[0].className = "red";
+
+                //}
+
+    </script>
+</body>
+</html>

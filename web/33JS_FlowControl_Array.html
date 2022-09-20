@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+</head>
+<body>
+
+
+
+<script>
+
+
+
+    var a = 123;//變數只放單一值
+
+
+    //陣列(Array) 是 資料結構的一種，變數放多個值
+    var item = ["123", "黃小明", "078210171"];
+
+    document.write(item[0]+"<hr/>");//只輸出值
+    document.write(item[1] + "<hr/>");
+    document.write(item[2] + "<hr/>");
+
+    //陣列.length=陣列的長度，可以搭配for的中止條件值，將陣列的資料撈出來
+
+    document.write(item);//輸出整個變數值含逗點
+    //var item = {
+    //    sn: 123,
+    //    name: "黃大明",
+    //    tel:"078210171"
+    //}
+    document.write("<br>");
+    var Rainbow = ["紅", "橙", "黃", "綠", "藍", "靛", "紫"];
+    var rainbowcolor = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+
+    for (i = 0; i < Rainbow.length; i++) {
+        //document.write(`<span style="color:${rainbowcolor[i]}">${Rainbow[i]}</span>`);//注意模板字符是使用`符號不要打成'符號了
+        //document.write(`<span style="color:${rainbowcolor[i]}">${Rainbow[i]}</span>`);//要改文字顏色要用到CSS，需要透過標籤來達成
+        document.write("<span style='color: "+rainbowcolor[i]+"'>"+Rainbow[i]+"</span>");
+/*        document.write(`<span style="color:${RainbowColor[i]}">${Rainbow[i]}</span>`);*/
+        //document.write('<p style="color:[rainbow[i]]">Rainbow[i]</p>');
+
+    }
+    
+</script>
+
+</body>
+</html>

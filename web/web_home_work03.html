@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="hw3.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="controlpaner">
+        <select id="song">
+            <!--//event事件物件-->
+        </select>
+        <hr />
+        <span onclick="Play()" id="PSbtn" title="撥放鈕">4</span>
+
+        <!--<span onclick="Pause()">;</span>-->
+
+        <span onclick="Stop()"><</span>
+        <span onclick="changeTime(-5)">7</span>
+        <span onclick="changeTime(5)">8</span>
+        <span onclick="changeSong(-1)">9</span>
+        <span onclick="changeSong(1)">:</span>
+        <span id="Mutebtn" onclick="setMuted()">U</span>
+        <span onclick="setloop()">q</span>
+        <span onclick="setRandom()">s</span>
+        <span onclick="setCycle()">`</span>
+        <span onclick="songBook()">@</span>
+        <br />
+        <hr />
+
+        <input id="progress" type="range" value="0" oninput="setTimeBar()" />
+        <!--onchange拖曳結束後輸入值，oninput拖曳當下就在輸入值-->
+        <!--<input id="range1" oninput="SoundVolume1((range1.value)/100)" type="range" mix="0" max="100" value="100" />-->
+        <input id="range1" oninput="SoundVolume1()" type="range" mix="0" max="100" value="100" />
+
+        <input id="Button1" type="button" value="+" onclick="changeRange(1)" />
+        <input id="Button2" type="button" value="-" onclick="changeRange(-1)" />
+        <input id="volinfo" type="text" value="100" readonly /><!--read only只能讀不能寫-->
+        <hr />
+        <div id="info">
+            <marquee>請按下撥放鈕</marquee>
+            <div>00:00 / 00:00</div>
+            <div>　</div>
+        </div>
+        <div id="book" class="">
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div title="music/ngggyu.mp3">Never Gonna Give You Up</div>
+                <div title="music/lifeseasea.mp3">人生海海</div>
+                <div title="music/minnong.mp3">敏農</div>
+                <div title="music/aboom.mp3">aboom</div>
+                <div title="music/airball.mp3">告白氣球</div>
+                <div title="music/elysees.mp3">Champs-Elyees</div>
+                <div title="music/moon.mp3">moon</div>
+                <div title="music/nothing.mp3">nothing</div>
+                <div title="music/travel.mp3">travel</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+            </div>
+            <button style="width:inherit; background-color:#52a4ea;color:white;font-size:18px;" onclick="updataMenu()">更新歌單</button>
+        </div>
+
+        <!--<select id="musicMenu"multiple>
+        <option>Champs-Elyees</option>
+        <option>告白氣球</option>
+        <option>moon</option>
+    </select>
+    <select id="playMenu" multiple>
+
+    </select>-->
+        <br />
+        <!--<button style="width:inherit; background-color:#52a4ea;color:white;font-size:18px;" id="updateMenu">更新歌單</button>-->
+    </div>
+
+    <audio id="music">
+        <source  type="audio/mpeg" />
+    </audio>
+
+    <script src="hw3.js"></script>
+</body>
+</html>

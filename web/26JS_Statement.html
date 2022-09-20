@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+
+
+
+    <script>
+        //運算敘述句
+        var a = 10;
+        a = 20;
+        a = a + 10;//算術指定運算,a=30(20+10)
+        a += 10;//a=40(30+10)
+        a -= 8;//a=32(40-8)
+        a *= 10;//a=320(32*10)
+        a /= 32;//a=10(320/10)
+
+        a++;//a=a+1,a+=1
+
+        document.write(a);
+        document.write("<hr>");
+        ////////////////////////////////////////////////////
+        //隨堂練習兩數交換
+        //宣告變數x,y為任意數，並將兩數的值交換
+        var x = 123;
+        var y = 456;
+        var z = x;
+        x = y;
+        y = z;
+
+        document.write("x=" + x + "，y=" + y);
+        document.write("<hr/>");
+        var n
+        n = x + y;//8=3+5
+        x = n - x;  // 5=8-3
+        y = n - y;  // 3=8-5
+
+
+        document.write("x=" + x + "，y=" + y);
+        var x = 3; var y = 5;
+        x = x + y; //8=3+5
+        y = x - y; //3=8-5
+        x = x - y; //5=8-3
+/////////////////////////////////////////////////////////////////
+        //觀察以下輸出值的變化
+        document.write("<hr/>"); 
+        document.write(3.0);
+        document.write("<hr/>");
+        document.write(3.5);
+        document.write("<hr/>");
+
+        //parseint() 將值轉為整數型態
+        document.write(parseInt(3.0));
+        document.write("<hr/>");
+        document.write(parseInt(3.5));
+        document.write("<hr/>");
+        document.write(parseInt("3.0"));
+        document.write("<hr/>");
+        document.write(parseInt("3.5"));
+        document.write("<hr/>");
+        //typeof()回傳值的資料型態
+        document.write("<hr/>");        
+        document.write(typeof (3.0));
+        document.write("<hr/>");
+        document.write(typeof (parseInt("3.0")));
+        document.write("<hr/>");
+        document.write(typeof (3));
+        document.write("<hr/>");
+        document.write(typeof ("3.0"));
+        document.write("<hr/>");
+        document.write(typeof (parseInt("3.0")));
+        document.write("<hr/>");
+        document.write(parseInt("45645646dsfafdfwerfdsfds"));
+        document.write("<hr/>");
+        document.write(parseInt("dsfafdfwerfdsfds45645646"));//傳出NaN:not a number
+        document.write("<hr/>");
+
+        document.write(typeof (parseInt("dsfafdfwerfdsfds45645646")));//傳出NaN:not a number
+        document.write("<hr/>");
+
+        document.write(parseInt("12e5"));
+        document.write("<hr/>");
+        document.write(parseInt("55", 8));
+        document.write("<hr/>");
+        document.write(parseInt("5", 2));
+        document.write("<hr/>");
+        document.write(parseInt("ff", 16));
+        document.write("<hr/>");
+        document.write(typeof(parseFloat(5)));
+        document.write("<hr/>");
+/////////////////////////////////////////////////////////////////////////////
+        //運算
+
+        var strName = "Jack", intNumber = 123, blnGenger = true;//宣告變數可以用逗點隔開，匈牙利命名法 資料型別int.str...+Name
+        var result = "";//初始化result變數為空字串
+
+        //運算子 兩側 運算元型態需相同才能運算
+        result = strName + blnGenger;//string+boolean=string 隱含轉換>string+string=string
+        document.write("<hr/>");
+        document.write(result);
+
+        result = strName + intNumber;//string+number=string 隱含轉換>string+string=string
+        document.write("<hr/>");
+        document.write(result);
+
+        result = intNumber + blnGenger;//intNumber+blnGenger=intNumber 隱含轉換>intNumber+intNumber=intNumber
+        document.write("<hr/>");
+        document.write(result);
+
+        result = blnGenger + strName;//blnGenger+strName=strName 隱含轉換>strName+strName=strName
+        document.write("<hr/>");
+        document.write(result);
+
+        result = blnGenger + intNumber;//blnGenger+intNumber=intNumber 隱含轉換>intNumber+intNumber=intNumber
+        document.write("<hr/>");
+        document.write(result);
+
+        result = blnGenger + 1;//blnGenger+intNumber=intNumber 隱含轉換>intNumber+intNumber=intNumber
+        document.write("<hr/>");
+        document.write(result);
+        //不同資料型態相加運算時，JS會自動隱含轉換:字串>數字>布林，字串老大哥拉可以吸收數字跟布林，數字只能吸收布林值，布林摳連只能當別人小弟。
+        //變數&全域性與區域性的問題
+        document.write("<hr/>");
+
+        
+        //var r = Math.floor(Math.random()*30);
+        //document.write(r + 1);
+        var history = "20 30 15 2";
+        var n = 0;
+        var status = '主席、紀錄為：';
+        for (i = 0; i < 2; i++) {
+
+            var n = Math.floor(Math.random() * 30) + 1;
+
+            if (status.indexOf(n) > 0) {
+                //如果有出現過就重跑一次迴圈
+                i -= 1;
+                continue;
+            }
+            else {
+                status += n + "    ";
+
+            };
+
+        };
+        document.write(status);
+    </script>
+</body>
+</html>

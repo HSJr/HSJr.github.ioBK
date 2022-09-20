@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #container{
+            width:1000px;
+            margin:auto;
+        }
+        #treaveldata > div {
+            box-shadow: 0px 0px 8px black;
+            /*            border:4px solid #516963;*/
+            border-radius: 15px;
+            /*padding:15px;*/
+            margin: 10px;
+        }
+         #container > img {
+                width:100%;
+         }
+
+        .center {
+            text-align:center;
+        }
+        .table {
+        width:inherit;
+        height:300px;
+        background-color:#ebf1d1;
+        border-radius:inherit;
+        padding:10px;
+        }
+
+        .flexcenter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .flexBottom {
+            display: flex;
+            align-items: center;
+            border-radius:inherit;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: nowrap;
+            padding:15px;
+            background-color:#f9fbcf;
+            
+        }
+        img {
+        padding:15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="select" style="font-size:30px" ;>
+        <spen>選擇地區</spen>
+        <select onchange="change()">
+
+            <!--<option>高雄市</option>
+        <option>苗栗縣</option>
+        <option>臺中市</option>
+        <option>新竹縣</option>-->
+        </select>
+    </div>
+    <div id="container">
+        <h1>浪浪</h1>
+
+    </div>
+
+
+ 
+
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        change();
+        var animal = [];
+        var place = [];
+        //$.ajax({
+        //    type: 'get',
+        //    url: 'https://od.moi.gov.tw/api/v1/rest/datastore/A01010000C-001277-053',
+        //    success: function (data) {
+        //        console.log(data);
+        //    },
+        //    error: function () {
+        //    }
+
+        //})
+        item1 = "<div id='treaveldata'></div>";
+        $('#container').append(item1);
+        function change() {
+            var item = "";
+        //取得opendata資料
+            $.ajax({
+                type: 'get',
+                url: 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL',
+                /*url:'https://od.moi.gov.tw/api/v1/rest/datastore/A01010000C-001277-053',*/
+                success: function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if ($.inArray(data[i].animal_place, place) == -1) {
+                            place.push(data[i].animal_place)
+                        }
+                    }
+                    console.log(place);
+
+                    for (var i = 0; i < place.length; i++) {
+                        var placeadd = `<option class="optionfontsize">${place[i]}</option>`;
+                        $('select').append(placeadd)
+                    }
+
+                    console.log(animal);
+
+                    for (var i = 0; i < 10; i++) {
+                        animal = `<h1>${data[i].animal_id}</h1>
+                        <h2>${data[i].animal_place}</h2>
+                        <img src="${data[i].album_file}" width="100px" />
+                        `;
+                        $('#container').append(animal);
+                    }
+                    console.log(animal);
+                },
+                error: function () {
+                    console.log('error');
+                }
+            });
+        }
+
+        $('#select').css({
+            'display':'flex',
+            'flex-direction':'row',
+            'justify-content': 'center',
+            'font- size':'30px'
+
+        });
+
+        $('.select').css({
+            'font-size': '24px'
+        });
+
+        function style2() {
+            $('#container>h1').css({
+                'text-shadow': '0px 0px 10px black',
+                'padding': '15px',
+                'text-align': 'center',
+                'color':'yellow'
+            });
+            setTimeout(style1,200);
+        }
+
+        function style1() { 
+            $('#container>h1').css({
+                'text-shadow': '0px 0px 10px black',
+                'padding': '15px',
+                'text-align': 'center',
+                'color': 'black'
+            });
+            setTimeout(style2,200);
+        }
+        style1();
+
+    </script>
+</body>
+</html>

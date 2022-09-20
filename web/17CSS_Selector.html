@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /*<!-- css selector 屬性相互衝突時 優先權 id >class > tag-->*/
+        h1 {
+            color: red;
+            background-color: blue;
+            opacity: .8;
+            font-size: 10px;
+        }
+        h2 {
+            color:blue;
+            background-color:yellow;
+            font-size:80px;
+            opacity:.8;
+        }
+        .a {
+            border:10px solid red;
+            margin:50px 0 50px 0;
+            color:orange;
+        }
+        .b {
+            font-size:3em;
+            color:black;
+        }
+        .c {
+            color:white;
+        }
+        #h1 {
+            font-size:1em;
+            color:yellow;
+            border:10px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <!--css selector優先權  id > class > tag-->
+    <!--一個標籤可以同時有多個class，可以同時被多個selector操控-->
+    <h1 class="a b c">welcom my home page!!</h1>
+
+    <h1 class="c">welcom my home page!!</h1>
+    <h1 class="b">welcom my home page!!</h1>
+    <h1 id="h1" style="color:purple">welcom my home page!!</h1><!--ID(identity)唯一識別值 單一 優先，inline最優先-->
+    <h2 class="a">H2H2H2H2H2H2H2H2H2H2H2H2H2</h2>
+    <h1 class="a b">welcom my home page!!</h1><!--當標籤同時為兩個class時，在selector中屬性相衝突時，會依照順序底下的selector會蓋掉上方的selector-->
+    <h1 class="b">welcom my home page!!</h1>
+    <h1>welcom my home page!!</h1>
+    <h1>welcom my home page!!</h1>
+    <h1>welcom my home page!!</h1>
+    <h2 class="b">H2H2H2H2H2H2H2H2H2H2H2H2H2</h2>
+    <h1>welcom my home page!!</h1>
+    <h1>welcom my home page!!</h1>
+
+</body>
+</html>

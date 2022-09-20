@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        //流程控制 if...else
+        var a = 5;
+
+        //滿足條件就執行，不滿足條件就不執行(if敘述)
+        if (a > 10) {
+            document.write(a);
+        }
+        else {
+            document.write("哦哦哦...挖系else系挖");
+        }
+        document.write("<hr />");
+
+        /////////////////////////////////////////////////////
+        //1.信用卡付款 2.現金 3.轉帳 4.Line Pay 5.貨到付款
+
+        //var intnumber = prompt("要用什麼付款@@?");
+        var intPayType = intnumber;
+        var intnumber = 1;
+        if (intnumber == 1) {
+            document.write("信用卡付款");
+        } else if (intnumber == 2) {
+            document.write("現金");
+        } else if (intnumber == 3) {
+            document.write("轉帳");
+        } else if (intnumber == 4) {
+            document.write("Line Pay");
+        } else if (intnumber == 5) {
+            document.write("貨到付款");
+        } else {
+            document.write("亂輸入欠槌逆");
+        }
+        //document.write("<hr />");
+        //==在JS中會把數字1跟文字的1判斷為True，===三個等於嚴謹的比較會判斷資料型別。
+        //var t = 1, r = "3";
+        //if (t == r) {
+        //    document.write("成立");
+        //}
+        //else
+        //    document.write("不成立");
+
+        ////指定運算子
+        //if (t = r) {
+        //    document.write("成立");
+        //}
+        document.write("<hr />")
+        //區分等第
+        //90分以上優等 80-89 甲 70-79 乙 60-69丙 60不到丁
+        //!not &&and ||or
+        var score = prompt("幾芬");
+        document.write("<h1>"+score + "芬");
+        document.write("<hr />");
+        document.write("天線寶寶：");
+        if (score >= 0 && score <= 100) {
+            if (score >= 90)
+                document.write("優優");
+
+            if (score < 90 && score >= 80)
+                document.write("甲甲");
+
+            if (80 > score && score >= 70)
+                document.write("乙乙");
+
+            if (score < 70 && score >= 60)
+                document.write("丙丙");
+
+            if (score < 60) {
+                document.write("丁丁 ???");
+            document.write("<img src=\"http://farm8.staticflickr.com/7339/11291682074_586b3a489a_o.jpg\">");
+            }
+        } else
+            document.write("在亂逆，把你打成ㄎㄎ喔");
+
+        document.write("<hr />");
+        document.write("天線寶寶二班：");
+        //搜尋式if
+        if (score >= 0 && score <= 100) {
+            if (score >= 90)
+                document.write("優優");
+            else if (score >= 80)
+                document.write("甲甲");
+            else if (score >= 70)
+                document.write("乙乙");
+            else if (score >= 60)
+                document.write("丙丙");
+            else {
+                document.write("丁丁 你啊罵叫你多讀書");
+                document.write("<img src=\"https://pbs.twimg.com/profile_images/904945432597413888/XgG-DXyd_400x400.jpg\">");
+            }
+        } else {
+            document.write("想當ㄎㄎ?")
+        document.write("<img src=\"http://ideapit.net/filedata/201205/htx90q20120515135008.jpg\">");
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #container{
+            width:1000px;
+            margin:auto;
+        }
+        #treaveldata > div {
+            box-shadow: 0px 0px 8px black;
+            /*            border:4px solid #516963;*/
+            border-radius: 15px;
+            /*padding:15px;*/
+            margin: 10px;
+        }
+         #container > img {
+                width:100%;
+         }
+
+        .center {
+            text-align:center;
+        }
+        .table {
+        width:inherit;
+        height:300px;
+        background-color:#ebf1d1;
+        border-radius:inherit;
+        padding:10px;
+        }
+
+        .flexcenter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .flexBottom {
+            display: flex;
+            align-items: center;
+            border-radius:inherit;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: nowrap;
+            padding:15px;
+            background-color:#f9fbcf;
+            
+        }
+        img {
+        padding:15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="select" style="font-size:30px" ;>
+        <spen>選擇地區</spen>
+        <select onchange="change()">
+
+            <!--<option>高雄市</option>
+        <option>苗栗縣</option>
+        <option>臺中市</option>
+        <option>新竹縣</option>-->
+        </select>
+    </div>
+    <div id="container">
+        <h1>全國農業旅遊休閒園區</h1>
+
+    </div>
+
+
+ 
+
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        change();
+        var city = [];
+
+        //$.ajax({
+        //    type: 'get',
+        //    url: 'https://od.moi.gov.tw/api/v1/rest/datastore/A01010000C-001277-053',
+        //    success: function (data) {
+        //        console.log(data);
+        //    },
+        //    error: function () {
+        //    }
+
+        //})
+        item1 = "<div id='treaveldata'></div>";
+        $('#container').append(item1);
+        function change() {
+            var item = "";
+        //取得opendata資料
+            $.ajax({
+                type: 'get',
+                url: 'https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx',
+                success: function (data) {
+
+                    console.log(city.length);
+                    //append城市option到 select
+                    if (city.length == 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            if ($.inArray(data[i].City, city) == -1) {
+                                city.push(data[i].City)
+                            }
+                        }
+                        console.log(city);
+
+                        for (var i = 0; i < city.length; i++) {
+                            var cityadd = `<option class="optionfontsize">${city[i]}</option>`;
+                            $('select').append(cityadd)
+                        }
+                    }
+
+
+
+                    /*function change() {}*/
+                    var selectcity = $("select").find("option:selected").text();
+                    console.log(selectcity);
+                    /*$('#container').html("");*/
+                    $('#treaveldata').empty();
+                    
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].City == selectcity) {
+                            //    item="<div>"
+                            //item += "<h1>" + data[i].City + "</h1>";
+                            //item += `<table ><tr><td><h1>${data[i].Name}</h1></td><td><a href="https://www.google.com.tw/maps/search/${data[i].Address}" target='_blank'>${data[i].Address}</a><br /></td></tr></table>`;
+
+                            //item += `<table border="1px"><tr><td><img src="${data[i].Photo}" width="300px"/></td><td>${data[i].Introduction}</td></tr></table></div><hr />`;
+                            ////item += "<p>" + data[i].Introduction + "</p>" +"<hr />";
+
+                            item += `<div  title="${data[i].Introduction}" class="flexcenter" >
+                                <div><h1 class="center">${data[i].City}</h1></div>
+                                <div><h1>${data[i].Name}</h1></div>
+                                <div><a href="https://www.google.com.tw/maps/search/${data[i].Address}" target='_blank'>${data[i].Address}</a></div>
+                                <div class="flexBottom">
+                                <div><img src="${data[i].Photo}" width="300px"/></div>
+                                <div>${data[i].Introduction}</div>
+                                </div>
+                                </div>`;
+                            //item += "<p>" + data[i].Introduction + "</p>" +"<hr />";
+
+                            
+                        }
+                    } $('#treaveldata').append(item);
+                    
+                },
+                error: function () {
+                    console.log('error');
+                }
+            });
+        }
+
+        $('#select').css({
+            'display':'flex',
+            'flex-direction':'row',
+            'justify-content': 'center',
+            'font- size':'30px'
+
+        });
+
+        $('.select').css({
+            'font-size': '24px'
+        });
+
+        function style2() {
+            $('#container>h1').css({
+                'text-shadow': '0px 0px 10px black',
+                'padding': '15px',
+                'text-align': 'center',
+                'color':'yellow'
+            });
+            setTimeout(style1,200);
+        }
+
+        function style1() { 
+            $('#container>h1').css({
+                'text-shadow': '0px 0px 10px black',
+                'padding': '15px',
+                'text-align': 'center',
+                'color': 'black'
+            });
+            setTimeout(style2,200);
+        }
+        style1();
+
+    </script>
+</body>
+</html>

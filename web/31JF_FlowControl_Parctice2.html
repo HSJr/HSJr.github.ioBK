@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+
+
+    <script>
+        //巢狀迴圈
+        //for (i = 0; i <5; i++) {
+        //    for (j = 0; j <= i; j++) {
+        //        document.write("*");
+        //    }
+        //    document.write("<br/>");
+        //}
+
+
+        //只使用一個迴圈
+        var a = "";
+        for (i = 0; i < 5; i++) {
+           a += "*";
+            document.write(a+"<br/>");
+        }
+
+        for (i = 1; i < 10; i++) {
+            for (j = 1; j < 10; j++) {
+            document.write(i + "*" + j + "="+i*j + "<br/>");
+            }
+            document.write("<hr/>")
+        }
+
+        //var i=0;
+        //    for (j = 1; j < 10; j++) {
+        //        i += 1;
+        //        document.write(i + "*" + j + "=" + i * j + "     ");//先乘除後加減
+        //    }
+        //    document.write("<hr/>")
+
+        var j=1;
+        for (i = 1;j<=9 ; i++) {
+
+            if (i > 9) {
+                i = 1;
+                j++;
+                
+            }
+            //document.write(j + "*" + i + "=" + i * j + "<br/>");
+            document.write(`${j}*${i}=${j * i}<br/>`);
+        }
+
+
+
+    </script>
+</body>
+</html>

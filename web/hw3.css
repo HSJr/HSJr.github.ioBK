@@ -1,0 +1,189 @@
+﻿@font-face {
+    font-family: 'webdings';
+    src: url('fonts/webdings.woff2') format('woff2'), url('fonts/webdings.eot') format('embedded-opentype'), url('fonts/webdings.svg') format('svg'), url('fonts/webdings.ttf') format('truetype'), url('fonts/webdings.woff') format('woff');
+}
+
+
+
+#controlpaner {
+    border: 3px solid;
+    width: 700px;
+    height: 610px;
+    text-align: center;
+    margin: auto;
+    background-image: url('images/cat-dance.gif');
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+}
+
+#song, #info {
+    background-color: black;
+    color: #4cff00;
+    font-size: 2em;
+    width: inherit;
+    opacity: .8;
+    text-align: center;
+}
+
+#controlpaner > span {
+    border: 2px solid black;
+    padding: 2px;
+    box-shadow: 2px 2px black;
+    cursor: pointer; /*//更改游標圖示*/
+    font-family: Webdings;
+    font-size: 3rem;
+    border-radius: 50px;
+}
+
+    #controlpaner > span:active {
+        box-shadow: 0px 0px 10px white;
+    }
+
+#Button1, #Button2 {
+    border-radius: 50px;
+    font-size: 10px;
+}
+
+#volinfo {
+    width: 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#range1 {
+    width: 80%;
+    height: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #89c37d;
+    box-shadow: 0px 0px 10px green;
+    border: 1px solid #8080805c;
+    /*            background-color: #c8c8c8;
+*/ outline: none;
+}
+
+    #range1:hover {
+        animation: shake 0.3s;
+        animation-iteration-count: infinite;
+    }
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+#range1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /*background-color:black;*/
+    height: 20px;
+    width: 20px;
+    background-color: #69fb2670;
+    box-shadow: 0px 0px 10px green;
+    border-radius: 50px;
+    /*border:3px solid black;*/
+}
+/*#range1::-moz-range-thumb {
+                -moz-appearance: none;*/
+/*background-color:black;*/
+/*height: 20px;
+                width: 20px;
+                box-shadow: 0px 0px 20px green;
+                border-radius: 50px;*/
+/*border:3px solid black;*/
+/*}*/
+
+#progress {
+    width: inherit;
+    height: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-bottom: 10px;
+    background-color: #c8c8c8;
+    outline: none;
+}
+
+    #progress::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 5px;
+        background-color: #b60000;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+        #progress::-webkit-slider-thumb:hover {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+#musicMenu, #playMenu {
+    width: 300px;
+    height: 600px;
+}
+
+marquee {
+    color: #FFFFFF;
+}
+
+#book > div {
+    border: 1px groove;
+    width: 348px;
+    height: 200px;
+    float: left;
+    background-color: black;
+    opacity: .7;
+    color: white;
+    text-align: left;
+}
+
+    #book > div > div {
+        border: 1px groove;
+        cursor: pointer;
+    }
+
+.hide {
+    display: none;
+}

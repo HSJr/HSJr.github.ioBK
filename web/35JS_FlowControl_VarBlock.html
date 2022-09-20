@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    
+    var a = 123;//全域變數
+
+    function test() {
+        document.write(a);
+        var b = 456; //{區域變數}
+        document.write(b);
+        c = 789;//沒有被宣告的變數，變成全域變數??
+    }
+    test();
+    document.write("<hr>");
+    document.write(a);
+    document.write(b);
+    document.write(c);
+    ////////////////////////////////////
+    //ES6
+
+    var x = 5;
+    let y = 10;
+
+    function test2() {
+        document.write(x);
+        document.write(y);
+    }
+    test2();
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+
+    <script>
+        //變數 三種宣告方式
+        //不宣告
+        //var宣告
+        //let宣告
+        name = 123;
+        name = 456;
+        name = 789;
+        document.write(name);
+
+        var a = 123;
+        var c;/*可以先行宣告變數*/
+        c = 234;
+        let b = 123;
+        /*在javascript中宣告變數但為Null時會在網頁上顯示undefined，不會空空的出現。
+         使用一個沒有宣告的空值變數時，網頁什麼都不會顯示但F12開發者工具是會報錯 not defined*/
+        var d; 
+        document.write(d);
+
+        document.write("<hr>");
+        ///////////////////////////////////////////
+        //數值(Number)資料型態分類
+        var n = 123324568345349742345953574891235749753125984; //數值資料太常使用科學記號表示法  精準度遺失
+
+
+        var n1 = 1.3;//浮點數
+        var n2 = 1.5;//浮點數
+        var r = n1 + n2
+
+        //整數
+        n = 123;//十進位整數
+        document.write(n);
+        document.write("<hr>");
+
+        n = 0123;//八進位整數 在javascript 整數頭如果為0表示後面數字為八進位，但輸出為十進位
+        document.write(n);
+        document.write("<hr>");
+
+        n = 0x123;//十六進位整數 在javascript 整數頭如果為0x表示後面數字為十六進位，但輸出為十進位
+        document.write(n);
+        document.write("<hr>");
+
+        n = 0x1f;//八進位整數 在javascript 整數頭如果為0為八進位，但是後面數字有大於八，則視為時進位
+        document.write(n);
+        document.write("<hr>");
+
+        n = 0193;//八進位整數 在javascript 整數頭如果為0為八進位，但是後面數字有大於八，則視為時進位
+        document.write(n);
+        document.write("<hr>");
+
+        n = 5e-10;//浮點數
+        document.write(n);
+        document.write("<hr>");
+
+        var t = 0.1;//為什麼有精準度遺失的問題，電腦會先將值轉為二進位。電腦只會做二進位的加法。
+        var x = 0.2;
+        document.write(t + x);
+        document.write("<hr>");
+
+        q = "aaa";//字串
+        document.write(q);
+        document.write("<hr>");
+
+
+
+    </script>
+</body>
+</html>

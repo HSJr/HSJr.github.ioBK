@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #container {
+            width: 1000px;
+            margin: auto;
+        }
+            /*  #container > h1:first-child {
+                box-shadow: 0px 0px 20px black;
+                padding: 15px;
+                text-align: center;
+            }*/
+            #container > div > div {
+                /*border: 2px groove #808080;*/
+                box-shadow: 0px 0px 20px black;
+                border-radius: 10px;
+                margin-top: 10px;
+                padding: 15px;
+            }
+
+            #container > div > img {
+                width: inherit;
+            }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="Button1" type="button" value="button" />
+    <input id="Button2" type="button" value="登入系統" />
+
+    <fieldset id="login">
+        <legend>登入系統</legend>
+        <table>
+            <tr>
+                <td>
+                    帳號:
+                </td>
+                <td>
+                    <input id="Text1" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    密碼:
+                </td>
+                <td>
+                    <input id="Password1" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input id="Submit1" type="submit" value="登入" />
+                    <input id="Reset1" type="reset" value="重填" />
+                </td>
+
+            </tr>
+        </table>
+    </fieldset>
+
+
+
+    <div id="container">
+        <h1>全國農業旅遊休閒園區</h1>
+        輸入城市查詢:<input id="txtCity" type="text" /><input id="Button1" type="button" value="查詢" onclick="getTravelData()" />
+
+    </div>
+
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        //$('#container > h1:first-child').hide(3000);
+        //$('#container > h1:first-child').show(3000);
+        //$('#container > h1:first-child').slideDown(3000);
+        //$('#container > h1:first-child').slideUp(3000);
+
+        $('#login').hide();
+        //$('#container>h1:first-child').slideDown(3000)
+        //$('#container>h1:first-child').slideUp(3000);
+        $('#Button2').click(function () {
+            $('#login').slideToggle(2000);
+        });
+        $('#Button1').click(function () {
+            $('#container>h1:first-child').hide().fadeToggle(3000);
+        });
+
+       
+        var item = "";
+        $('#container').append("<div id='TravelData'></div>")
+        getTravelData();
+        function getTravelData() {
+            $('#TravelData').empty();
+            $.ajax({
+                type: 'get',
+                url: `https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx?$filter=City+like+${$('#txtCity').val()}`,
+                success: function (data) {
+                    console.log(data);
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        //item = "<div>";
+                        //item += "<h2>" + data[i].Name + "</h2>";
+                        //item += "<h4>" + data[i].Tel + "</h4>";
+                        //item += "<h4>" + data[i].Address + "</h4>";
+                        //item += "<img src='" + data[i].Photo + "' />";
+
+                        //item += `<p> <a href="https://www.google.com.tw/maps/search/${data[i].Address}" target="_blank">我要看地圖</a></p>`;
+                        //item += "</div>";
+                        //item += "<hr>";
+
+                        item = `<div title="${data[i].Introduction}">
+                                            <h2 class="center"> ${data[i].Name} </h2>
+                                            <div class="center"><img src="${data[i].Photo}" /></div>
+                                            <h3 class="center">
+                                                ${data[i].City} ${data[i].Town}
+                                            </h3 >
+                                            <div class="center">
+                                                <span>電話：${data[i].Tel}<span> |
+                                                <span>地址：${data[i].Address}<span> |
+                                                <a href="https://www.google.com.tw/maps/search/${data[i].Address}" target="_blank">地圖</a>
+                                            </div >
+                                        </div >`;
+
+                        $('#TravelData').append(item);
+
+                    }
+
+
+                },
+                error: function () {
+                    alert('error');
+                }
+            });
+        }
+
+        function setStyle1() {
+            $('#container>h1:first-child').css({
+                'box-shadow': '0px 0px 20px red',
+                'padding': '15px',
+                'text-align': 'center',
+                'background-color': 'green',
+                'color': 'white'
+            });
+            /*setTimeout("setStyle2()",200)*/
+        }
+        function setStyle2() {
+            $('#container>h1:first-child').css({
+                'box-shadow': '0px 0px 50px yellow',
+                'padding': '5px',
+                'text-align': 'center',
+                'background-color': 'red',
+                'color': 'blue',
+                'border': '5px dotted pink'
+            });
+            setTimeout("setStyle1()", 200)
+        }
+        setStyle1();
+    </script>
+</body>
+</html>

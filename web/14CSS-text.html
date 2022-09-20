@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1 style="text-decoration:underline;">Welcome My Homepage!!</h1>
+    <h1 style="text-decoration:overline;">Welcome My Homepage!!</h1>
+    <h1 style="text-decoration:line-through;">Welcome My Homepage!!</h1>
+    <h1 style="text-decoration:none">Welcome My Homepage!!</h1>
+    <a href="#" style="text-decoration:none">前往google</a>
+    <h1 style="color:#ce5c5c;background-color:#576192;font-size:36pt;width:800px;">Welcome My Homepage!!</h1>
+    <h1 style="text-align:center;">Welcome My Homepage!!</h1>
+    <h1 style="text-align:right;">Welcome My Homepage!!</h1>
+
+    <h1 style="text-transform:uppercase">Welcome My Homepage!!</h1>
+    <h1 style="text-transform:lowercase">Welcome My Homepage!!</h1>
+    <h1 style="text-transform:capitalize">Welcome My Homepage!!</h1>
+    <h1 style="text-transform:capitalize">WELCOM MY HOMEPAGE!!</h1>
+    <hr />
+    <h1 style="text-shadow:20px 10px 10px #ce5c5c">WELCOM MY HOMEPAGE!!</h1>
+    <h1 style="text-shadow:20px 10px 2px #ce5c5c">WELCOM MY HOMEPAGE!!</h1>
+    文字陰影text-shadow:x軸 y軸 柔化程度 陰影顏色;
+    <h1 style="text-shadow: 0px 0px 15px #ce5c5c,1px 1px 2px black; color: #ffffff;">WELCOM MY HOMEPAGE!!</h1>
+    <h1 style="text-shadow: 0px 0px 5px white,0px 0px 5px red; color: #000000; background-color: black; ">WELCOM MY HOMEPAGE!!</h1>
+    <h1 style="text-shadow: 0px 0px 5px red,0px 0px 5px white; color: #000000; background-color: black;">WELCOM MY HOMEPAGE!!</h1>
+
+    <hr />
+
+    <input id="btn1" type="button" value="放大" />
+    <input id="btn2" type="button" value="還原" />
+    <input id="btn3" type="button" value="縮小" />
+    <input id="rag" type="range" >
+    <div id="news" style="text-indent:2em;">
+        台灣新冠肺炎（COVID-19）本土疫情再起，這一波的確診者大多是輕症及無症狀，且症狀又和感冒相似，黃軒醫師就在臉書上分析，Omicron和類流感症狀已經愈來愈重疊，呼籲民眾如果有3症狀持續3天以上，最好做快篩檢查。
+
+        黃軒醫師在臉書「黃軒醫師Dr.Ooi Hean」上撰文指出，南韓國立中央醫療院的調查顯示，感染Omicron的患者中最常出現的症狀為喉嚨痛、流鼻涕、頭痛、打噴嚏、疲倦等症狀，比起Delta，出現發燒症狀的相對少。
+
+        由此可見Omicron變異株的特色是「上呼吸道感染」，因為和普通感冒類似，因此專家也提醒民眾注意，如果「喉嚨痛、咳嗽、流鼻涕」等症狀持續了3天以上，最好做快篩或PCR篩檢。
+
+        黃軒醫師指出，國外很鼓勵民眾自己家裡備好快篩，只要有出現下面4種情況，最好就快篩，包含「有呼吸道症狀」、「有重疊足跡」、「和確診者曾在同一個空間」、「所在社區是高風險，但無症狀。」不過黃軒醫師提醒，有症狀也不代表有足夠病毒量
+    </div>
+
+
+    <script>
+        btn1 = document.getElementById("btn1");  /*建立一個物件 = 在文件中.依據ID取得的元素*/
+        btn2 = document.getElementById("btn2");
+        btn3 = document.getElementById("btn3");
+        news = document.getElementById("news");
+
+        let ragvalue = document.getElementById("rag").value;
+        rag.addEventListener('change', function () {
+            news.style.fontSize = ragvalue + 'pt';
+        }
+        )
+
+        btn1.addEventListener('click', function () {  /*在物件.上建立事件監聽器('如果物件被點擊'，則實作一個功能物件(){實作的程式})*/
+            news.style.fontSize = "40pt";
+            news.style.color = "red";
+        })
+        btn2.addEventListener('click', function(){
+            news.style.fontSize = "12pt";
+        })
+        btn3.addEventListener('click', function () {
+            news.style.fontSize = "8pt";
+        })
+
+
+
+    </script>
+</body>
+</html>
