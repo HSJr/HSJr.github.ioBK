@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on HSJR Blog</title>
+    <link>https://HSJr.github.io/blog/</link>
+    <description>Recent content in Blogs on HSJR Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 20 Dec 2023 22:31:00 +0800</lastBuildDate>
+    <atom:link href="https://HSJr.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>test title</title>
+      <link>https://HSJr.github.io/blog/test/</link>
+      <pubDate>Wed, 20 Dec 2023 22:31:00 +0800</pubDate>
+      <guid>https://HSJr.github.io/blog/test/</guid>
+      <description>hello world
+一級標題 二級標題 六級標題 這是粗體的樣式
+這是斜體的樣式
+狗 馬爾雞斯 貓 雞 機車 速克達 YAMAHA 汽車 賓士 TOYOTA 原來&amp;gt;是引用的意思</description>
+    </item>
+    <item>
+      <title>How To Use Checklists To Improve Your UX</title>
+      <link>https://HSJr.github.io/blog/post-13/</link>
+      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
+      <guid>https://HSJr.github.io/blog/post-13/</guid>
+      <description>Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 Emphasis Emphasis, aka italics, with asterisks or underscores.</description>
+    </item>
+  </channel>
+</rss>

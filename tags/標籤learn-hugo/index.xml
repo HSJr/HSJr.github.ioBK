@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>標籤learn hugo on HSJR Blog</title>
+    <link>https://HSJr.github.io/tags/%E6%A8%99%E7%B1%A4learn-hugo/</link>
+    <description>Recent content in 標籤learn hugo on HSJR Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 20 Dec 2023 22:31:00 +0800</lastBuildDate>
+    <atom:link href="https://HSJr.github.io/tags/%E6%A8%99%E7%B1%A4learn-hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>test title</title>
+      <link>https://HSJr.github.io/blog/test/</link>
+      <pubDate>Wed, 20 Dec 2023 22:31:00 +0800</pubDate>
+      <guid>https://HSJr.github.io/blog/test/</guid>
+      <description>hello world
+一級標題 二級標題 六級標題 這是粗體的樣式
+這是斜體的樣式
+狗 馬爾雞斯 貓 雞 機車 速克達 YAMAHA 汽車 賓士 TOYOTA 原來&amp;gt;是引用的意思</description>
+    </item>
+  </channel>
+</rss>
